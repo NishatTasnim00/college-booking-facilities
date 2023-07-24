@@ -14,15 +14,15 @@ const MyCollegesCard = ({ college }) => {
 		sports,
 	} = college;
 
-      const [showModal, setShowModal] = useState(false);
+	const [showModal, setShowModal] = useState(false);
 
-			const handleShowModal = () => {
-				setShowModal(true);
-			};
+	const handleShowModal = () => {
+		setShowModal(true);
+	};
 
-			const handleCloseModal = () => {
-				setShowModal(false);
-			};
+	const handleCloseModal = () => {
+		setShowModal(false);
+	};
 	return (
 		<div>
 			<div className="card w-10/12 bg-base-100 shadow-xl mx-auto">
@@ -33,31 +33,31 @@ const MyCollegesCard = ({ college }) => {
 						alt={college_name}
 					/>
 				</figure>
-				<div className="card-body text-left">
+				<div className="card-body text-left font-medium text-gray-700">
 					<h2 className="card-title mx-auto py-5">{college_name}</h2>
 					<p>
-						<span className="card-title">Admission Dates: </span>
+						<span className="card-subtitle">Admission Dates: </span>
 						<span className="date-text">{admission_dates}</span>
 					</p>
 					<h3>
-						<span className="card-title">Events:</span>
+						<span className="card-subtitle">Events:</span>
 					</h3>
 					<ul>
 						{events?.map((event, index) => (
 							<li key={index}>
-								<strong>{event.event_name}</strong> -
-								<span className="date-text">{event.date}</span>
+								<strong className="text-gray-700">{event.event_name}</strong> -
+								<span className="event-date">{event.date}</span>
 								<br />
 								{event.description}
 							</li>
 						))}
 					</ul>
 					<p>
-						<span className="card-title">Research History:</span>
+						<span className="card-subtitle">Research History:</span>
 						{research_history}
 					</p>
 					<h3>
-						<span className="card-title">Sports:</span>
+						<span className="card-subtitle">Sports:</span>
 					</h3>
 					<ul>
 						{sports?.map((sport, index) => (
@@ -69,7 +69,7 @@ const MyCollegesCard = ({ college }) => {
 				<div>
 					{/* Your main content */}
 					<button
-						className="btn bg-sky-200 w-full rounded-none rounded-b-lg"
+						className="btn bg-blue-4oo w-full rounded-none rounded-b-lg"
 						onClick={handleShowModal}
 					>
 						Open Rating Modal

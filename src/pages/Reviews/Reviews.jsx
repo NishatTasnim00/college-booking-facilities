@@ -19,8 +19,9 @@ const Reviews = () => {
 			queryKey: ['collegesData'],
 			// enabled:!loading,
 			queryFn: async () => {
-				const result = await axios
-                .get('http://localhost:5000/colleges');
+				const result = await axios.get(
+					`${import.meta.env.VITE_API_URL}/colleges`
+				);
 				return result.data;
 			},
 		});

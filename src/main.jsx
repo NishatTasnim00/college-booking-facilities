@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { RouterProvider } from 'react-router-dom';
 import './index.css';
+import { Toaster } from 'react-hot-toast';
+
 import { createRoot } from 'react-dom/client';
 import { router } from './Routes/Routers'; // Make sure 'router' is properly defined in this file
 
@@ -14,6 +16,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 	<React.StrictMode>
 		<QueryClientProvider client={queryClient}>
 			<AuthProvider>
+				<Toaster />
+
 				<RouterProvider router={router} />
 			</AuthProvider>
 		</QueryClientProvider>

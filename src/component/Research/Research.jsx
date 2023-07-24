@@ -11,11 +11,12 @@ const Research = () => {
 			isLoading,
 			refetch,
 		} = useQuery({
-			queryKey: ['researchesData'],
 			// enabled:!loading,
 			queryKey: ['researchesData'],
 			queryFn: async () => {
-				const result = await axios.get('http://localhost:5000/research');
+				const result = await axios.get(
+					`${import.meta.env.VITE_API_URL}/research`
+				);
 				return result.data;
 			},
 		});

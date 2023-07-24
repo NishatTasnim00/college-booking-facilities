@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
-
+import logo from '../../../public/education.png';
 const Navbar = () => {
 	const { user, logOut } = useContext(AuthContext);
 	const handleLogOut = () => {
@@ -44,7 +44,7 @@ const Navbar = () => {
 		</>
 	);
 	return (
-		<div className="navbar bg-sky-300 px-8">
+		<div className="fixed z-10 top-0 navbar bg-blue-200 px-8">
 			<div className="navbar-start">
 				<div className="dropdown">
 					<label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -70,7 +70,7 @@ const Navbar = () => {
 						{navItem}
 					</ul>
 				</div>
-				<img className="h-10" src="/public/education.png" alt="" />
+				<img className="h-10" src={logo} alt="" />
 				<a className="btn btn-ghost normal-case text-xl"></a>
 			</div>
 			<div className="navbar-center hidden lg:flex">

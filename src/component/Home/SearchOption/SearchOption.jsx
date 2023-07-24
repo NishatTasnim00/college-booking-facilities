@@ -14,20 +14,18 @@ const SearchOption = () => {
 		setSearchText(newText);
 	};
 	const handleSearch = () => {
-		useEffect(() => {
-			axios
-				.get(`${import.meta.env.VITE_API_URL}/search/${searchText}`)
-				.then((res) => {
-					console.log(res);
-					setCollege(res.data);
-					setError('');
-					if (!res.data) {
-						setCollege(null);
-						setError('College not found!');
-					}
-				})
-				.catch((err) => console.log(err));
-		}, [searchText]);
+		axios
+			.get(`${import.meta.env.VITE_API_URL}/search/${searchText}`)
+			.then((res) => {
+				console.log(res);
+				setCollege(res.data);
+				setError('');
+				if (!res.data) {
+					setCollege(null);
+					setError('College not found!');
+				}
+			})
+			.catch((err) => console.log(err));
 	};
 
 	return (
@@ -58,13 +56,15 @@ const SearchOption = () => {
 						/>
 					</figure>
 					<div className="card-body text-left">
-						<h2 className="card-title mx-auto py-5">{college?.college_name}</h2>
+						<h2 className="card-subtitle mx-auto py-5">
+							{college?.college_name}
+						</h2>
 						<p>
-							<span className="card-title">Admission Dates: </span>
+							<span className="card-subtitle">Admission Dates: </span>
 							<span className="date-text">{college?.admission_dates}</span>
 						</p>
 						<h3>
-							<span className="card-title">Events:</span>
+							<span className="card-subtitle">Events:</span>
 						</h3>
 						<ul>
 							{college?.events?.map((event, index) => (
@@ -77,11 +77,11 @@ const SearchOption = () => {
 							))}
 						</ul>
 						<p>
-							<span className="card-title">Research History:</span>
+							<span className="card-subtitle">Research History:</span>
 							{college?.research_history}
 						</p>
 						<h3>
-							<span className="card-title">Sports:</span>
+							<span className="card-subtitle">Sports:</span>
 						</h3>
 						<ul>
 							{college?.sports?.map((sport, index) => (

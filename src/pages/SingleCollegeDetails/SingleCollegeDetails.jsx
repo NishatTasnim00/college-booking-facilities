@@ -8,25 +8,21 @@ const CollegeDetails = () => {
 	console.log(name);
 	const [loading, setLoading] = useState(true);
 
-const {
-	data: collegeData = [],
-	isLoading,
-	refetch,
-} = useQuery(
-	['collegeData', name],
-	{
-		// enabled: !loading, 
+	const {
+		data: collegeData = [],
+		isLoading,
+		refetch,
+	} = useQuery(['collegeData', name], {
+		// enabled: !loading,
 		queryFn: async () => {
-		
-				const result = await axios.get(`http://localhost:5000/colleges/${name}`);
-				return result.data;
-			
+			const result = await axios.get(
+				`${import.meta.env.VITE_API_URL}/colleges/${name}`
+			);
+			return result.data;
 		},
-	}
-);
+	});
 
-    // console.log(collegeData);
-
+	// console.log(collegeData);
 
 	const {
 		college_image,
@@ -47,13 +43,13 @@ const {
 					/>
 				</figure>
 				<div className="card-body text-left">
-					<h2 className="card-title mx-auto py-5">{college_name}</h2>
+					<h2 className="card-subtitle mx-auto py-5">{college_name}</h2>
 					<p>
-						<span className="card-title">Admission Dates: </span>
+						<span className="card-subtitle">Admission Dates: </span>
 						<span className="date-text">{admission_dates}</span>
 					</p>
 					<h3>
-						<span className="card-title">Events:</span>
+						<span className="card-subtitle">Events:</span>
 					</h3>
 					<ul>
 						{events?.map((event, index) => (
@@ -66,11 +62,11 @@ const {
 						))}
 					</ul>
 					<p>
-						<span className="card-title">Research History:</span>
+						<span className="card-subtitle">Research History:</span>
 						{research_history}
 					</p>
 					<h3>
-						<span className="card-title">Sports:</span>
+						<span className="card-subtitle">Sports:</span>
 					</h3>
 					<ul>
 						{sports?.map((sport, index) => (

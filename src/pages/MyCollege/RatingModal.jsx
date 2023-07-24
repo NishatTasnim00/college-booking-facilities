@@ -39,27 +39,27 @@ const RatingModal = ({ show, handleClose, college_name }) => {
 
 	return (
 		<div
-			className={`fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex justify-center items-center ${
+			className={`fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex justify-center items-center  ${
 				show ? 'block' : 'hidden'
 			}`}
 		>
 			<div className="bg-white w-96 p-6 rounded-md shadow-md">
 				<h2 className="text-xl font-bold mb-4">Rate this item</h2>
-				<label className="block">
+				<label className="block card-subtitle">
 					Your Review:
 					<textarea
 						name="review"
 						value={review}
 						onChange={handleReviewChange}
-						className="mt-2 block w-full p-2 border rounded-md focus:ring focus:ring-blue-300"
+						className="mt-2 block w-full p-2 border rounded-md focus:ring focus:ring-blue-300 font-normal text-gray-700"
 					/>
 				</label>
-				<label className="block">
+				<label className="block card-subtitle">
 					Select Rating:
 					<select
 						value={rating}
 						onChange={handleRatingChange}
-						className="mt-2 block w-full p-2 border rounded-md focus:ring focus:ring-blue-300"
+						className="mt-2 block w-full p-2 border rounded-md focus:ring focus:ring-blue-300 text-gray-700 font-medium"
 					>
 						<option value={0}>Select Rating</option>
 						<option value={1}>1 star</option>
@@ -72,13 +72,13 @@ const RatingModal = ({ show, handleClose, college_name }) => {
 				<div className="mt-4 flex justify-end">
 					<button
 						onClick={handleClose}
-						className="px-4 py-2 mr-2 text-white bg-gray-500 rounded-md"
+						className="px-4 py-2 mr-2 text-white btn-neutral  rounded-md"
 					>
 						Close
 					</button>
 					<button
 						onClick={handleSave}
-						className="px-4 py-2 text-white bg-blue-500 rounded-md"
+						className="px-4 py-2 text-white bg-blue-400 rounded-md"
 					>
 						Save
 					</button>

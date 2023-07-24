@@ -1,51 +1,39 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Provider/AuthProvider';
-
+import axios from 'axios';
 
 const EditProfileModal = ({ show, profile, onClose, onSave }) => {
-    // console.log(profile);
-    const{user} =useContext(AuthContext)
+	// console.log(profile);
+	const { user } = useContext(AuthContext);
 	const [editedProfile, setEditedProfile] = useState(profile);
-// const { name, subject, email, phone, address, dob } = profile;
+	// const { name, subject, email, phone, address, dob } = profile;
 	const handleChange = (event) => {
 		const { name, value } = event.target;
 		setEditedProfile({ ...editedProfile, [name]: value });
 	};
-const {
-	register,
-	handleSubmit,
-	formState: { errors },
-} = useForm();
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm();
 	const handleSave = () => {
-		// onSave(editedProfile);
-		// onClose();
+		onClose();
 	};
 
-    const onSubmit = (data)=>{
-    
-        console.log(data);
-        const editedProfile = {
-            
-name : data.name  profile.name
+	const onSubmit = (data) => {
+		// console.log(data);
+		const editedProfile = {
+			name: data.name || profile.name,
+			college_name: data.college_name || profile?.college_name,
+			address : data.address || profile?.address,
+			email: data.email || profile?.email,
+		};
+		onSave(editedProfile);
+				onClose();
 
-subject : 
-"CSE"
-college_name
-"Harvard University"
-email
-"nish6@gmail.com"
-phone
-"+8801308024634"
-address
-"Bangladesh"
-dob
-"1997-09-23"
-image
-"https://i.ibb.c
-        }
-        onSave(editedProfile);
-    };
+		console.log(editedProfile);
+	};
 	return (
 		<div
 			className={`fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex justify-center items-center ${
@@ -67,27 +55,8 @@ image
 								className="input input-bordered w-full capitalize"
 								{...register('name')}
 								placeholder="Candidate Name"
-								
+								defaultValue={profile?.name}
 							/>
-						</div>
-
-						<div className="w-full px-5 relative">
-							<label className="label">
-								<span className="text-add-class">Image</span>
-							</label>
-							<div className="input input-bordered w-full relative overflow-x-hidden">
-								<input
-									className="opacity-100 top-2 absolute "
-									{...register('image')}
-									type="file"
-									accept="image/*"
-									placeholder="Image"
-									
-								/>
-								<p className="py-[11px] rounded-none rounded-l-lg  z-10 top-0 absolute bg-slate-100 p-[7px]  left-0">
-									Upload Image
-								</p>
-							</div>
 						</div>
 
 						<div className="w-full px-5">
@@ -99,19 +68,6 @@ image
 								{...register('college_name')}
 								placeholder="College Name"
 								defaultValue={profile?.college_name}
-								
-							/>
-						</div>
-
-						<div className="w-full px-5">
-							<label className="label">
-								<span className="text-add-class">Subject</span>
-							</label>
-							<input
-								className="input input-bordered w-full"
-								{...register('subject')}
-								placeholder="Subject"
-								
 							/>
 						</div>
 
@@ -123,23 +79,10 @@ image
 								className="input input-bordered w-full"
 								{...register('email')}
 								placeholder="Candidate Email"
-								value={user.email}
-								
+								defaultValue={profile?.email}
 							/>
 						</div>
 
-						<div className="w-full px-5">
-							<label className="label">
-								<span className="text-add-class">Candidate Phone number</span>
-							</label>
-							<input
-								className="input input-bordered w-full"
-								{...register('phone')}
-								placeholder="Candidate Phone number"
-								type="tel"
-								
-							/>
-						</div>
 						<div className="w-full px-5">
 							<label className="label">
 								<span className="text-add-class">Address</span>
@@ -148,33 +91,22 @@ image
 								className="input input-bordered w-full"
 								{...register('address')}
 								placeholder="Address"
-								
+								defaultValue={profile?.address}
 							/>
 						</div>
-
-						<div className="w-full px-5">
-							<label className="label">
-								<span className="text-add-class">Date of Birth</span>
-							</label>
-							<input
-								className="input input-bordered w-full"
-								{...register('dob')}
-								placeholder="Date of Birth"
-								type="date"
-								
-							/>
-						</div>
-					</div>
-
-					<div className="w-full p-5 flex justify-evenly">
-						<button className="w-2/6 btn bg-blue-400" onClick={handleSave}>
-							Save
-						</button>
-						<button className="w-2/6 btn bg-red-500" onClick={onClose}>
-							Cancel
-						</button>
 					</div>
 				</form>
+				<div className="w-full p-5 flex justify-evenly">
+					<button
+						className="w-2/6 btn bg-blue-400"
+						onClick={handleSubmit(onSubmit)}
+					>
+						Save
+					</button>
+					<button className="w-2/6 btn bg-red-500" onClick={onClose}>
+						Cancel
+					</button>
+				</div>
 				{/*  */}
 			</div>
 		</div>

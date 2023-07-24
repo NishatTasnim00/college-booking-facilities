@@ -8,11 +8,12 @@ const Colleges = () => {
 		isLoading,
 		refetch,
 	} = useQuery({
-		queryKey: ['collegesData'],
 		// enabled:!loading,
 		queryKey: ['collegesData'],
 		queryFn: async () => {
-			const result = await axios.get('http://localhost:5000/colleges');
+			const result = await axios.get(
+				`${import.meta.env.VITE_API_URL}/colleges`
+			);
 			return result.data;
 		},
 	});
@@ -21,10 +22,15 @@ const Colleges = () => {
 		return <div>Loading...</div>;
 	}
 	return (
-		<div className="grid grid-cols-3 gap-5 mx-auto">
-			{collegesData.map((college, i) => (
-				<CollegeCard college={college} key={college.id}></CollegeCard>
-			))}
+		<div className="">
+			<h1 className="font-bold text-5xl pb-20 pt-5 text-center text-blue-500 uppercase">
+				Colleges at a glance
+			</h1>
+			<div className="grid grid-cols-3 gap-5 mx-auto">
+				{collegesData.map((college, i) => (
+					<CollegeCard college={college} key={college.id}></CollegeCard>
+				))}
+			</div>
 		</div>
 	);
 };

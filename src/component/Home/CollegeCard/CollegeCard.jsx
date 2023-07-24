@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const CollegeCard = ({ college }) => {
 	// console.log(college);
 	const {
-        _id,
+		_id,
 		college_image,
 		college_name,
 		admission_dates,
@@ -21,28 +21,31 @@ const CollegeCard = ({ college }) => {
 						alt={college.college_name}
 					/>
 				</figure>
-				<div className="card-body text-left h-[600px]">
+				<div className="card-body text-left h-[600px] font-medium text-gray-700">
 					<h2 className="card-title mx-auto">{college.college_name}</h2>
 					<p>
-						<span className="card-title">Admission Dates:</span>{' '}
+						<span className="card-subtitle">Admission Dates:</span>
 						{college.admission_dates}
 					</p>
 					<h3>
-						<span className="card-title">Events:</span>
+						<span className="card-subtitle">Events:</span>
 					</h3>
 					<ul>
 						{college.events.map((event, index) => (
 							<li key={index}>
-								<strong>{event.event_name}</strong> - {event.date}
+								<strong className="text-gray-700">{event.event_name}</strong> -{' '}
+								<span className="event-date">{event.date}</span>
 							</li>
 						))}
 					</ul>
 					<p>
-						<span className="card-title text-justify">Research History:</span>
+						<span className="card-subtitle text-justify">
+							Research History:
+						</span>
 						{college.research_history}
 					</p>
 					<h3>
-						<span className="card-title">Sports:</span>
+						<span className="card-subtitle">Sports:</span>
 					</h3>
 					<ul className="">
 						{college.sports.map((sport, index) => (
@@ -52,7 +55,7 @@ const CollegeCard = ({ college }) => {
 				</div>
 				<div className="">
 					<Link to={`/college/${college.college_name}`}>
-						<button className="btn bg-sky-200 w-full rounded-none rounded-b-lg">
+						<button className="btn bg-blue-400 w-full rounded-none rounded-b-lg">
 							Details
 						</button>
 					</Link>

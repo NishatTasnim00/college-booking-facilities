@@ -13,12 +13,23 @@ const MyCollege = () => {
 
  useEffect(() => {
 		 axios
-				.get(`http://localhost:5000/myColleges/${email}`)
+				.get(`${import.meta.env.VITE_API_URL}/myColleges/${email}`)
 				.then((data) => setMyCollegesData(data.data));
  }, [email]);
-    return <div>{myCollegesData.map((college)=>(
-        <MyCollegesCard college={college}></MyCollegesCard>
-    ))}</div>;
+			;
+ 
+    return (
+			<div>
+				<h1 className="font-bold text-5xl pb-10 pt-5 text-center text-blue-500 uppercase">
+					My College
+				</h1>
+				<div>
+					{myCollegesData.map((college) => (
+						<MyCollegesCard college={college}></MyCollegesCard>
+					))}
+				</div>
+			</div>
+		);
 };
 
 export default MyCollege;

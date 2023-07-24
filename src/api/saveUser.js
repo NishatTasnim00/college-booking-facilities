@@ -8,7 +8,7 @@ export const saveUser = (user) => {
 	};
 	console.log(currentUser);
 
-	fetch(`http://localhost:5000/users`, {
+	fetch(`${import.meta.env.VITE_API_URL}/users`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ export const saveGoogleUser = (user) => {
 		email: user.email,
 	};
 	// console.log(currentUser);
-	fetch(`http://localhost:5000/users/${user?.email}`, {
+	fetch(`${import.meta.env.VITE_API_URL}/${user?.email}`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
