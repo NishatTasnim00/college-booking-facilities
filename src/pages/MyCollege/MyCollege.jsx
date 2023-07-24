@@ -25,7 +25,7 @@ const MyCollege = () => {
 				</h1>
 				<div>
 					{myCollegesData.map((college) => (
-						<MyCollegesCard college={college}></MyCollegesCard>
+						<MyCollegesCard key={college.college_name} college={college}></MyCollegesCard>
 					))}
 				</div>
 			</div>

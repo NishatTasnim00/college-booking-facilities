@@ -35,6 +35,8 @@ const CollegeDetails = () => {
 	return (
 		<div>
 			<div className="card w-10/12 bg-base-100 shadow-xl mx-auto">
+				<h2 className="card-title mx-auto py-5">{college_name}</h2>
+
 				<figure className="h-72 w-8/12 mx-auto mt-10">
 					<img
 						className="h-72 w-6/12 rounded-xl absolute object-cover"
@@ -42,8 +44,7 @@ const CollegeDetails = () => {
 						alt={college_name}
 					/>
 				</figure>
-				<div className="card-body text-left">
-					<h2 className="card-subtitle mx-auto py-5">{college_name}</h2>
+				<div className="card-body text-left font-medium text-gray-700">
 					<p>
 						<span className="card-subtitle">Admission Dates: </span>
 						<span className="date-text">{admission_dates}</span>
@@ -54,8 +55,8 @@ const CollegeDetails = () => {
 					<ul>
 						{events?.map((event, index) => (
 							<li key={index}>
-								<strong>{event.event_name}</strong> -
-								<span className="date-text">{event.date}</span>
+								<strong className="text-gray-700">{event.event_name}</strong> -
+								<span className="event-date">{event.date}</span>
 								<br />
 								{event.description}
 							</li>

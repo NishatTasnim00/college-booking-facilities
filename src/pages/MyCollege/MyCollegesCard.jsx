@@ -69,7 +69,7 @@ const MyCollegesCard = ({ college }) => {
 				<div>
 					{/* Your main content */}
 					<button
-						className="btn bg-blue-4oo w-full rounded-none rounded-b-lg"
+						className="btn  bg-blue-400 w-full rounded-none rounded-b-lg"
 						onClick={handleShowModal}
 					>
 						Open Rating Modal

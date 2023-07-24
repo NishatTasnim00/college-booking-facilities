@@ -7,13 +7,12 @@ import { getAnalytics } from 'firebase/analytics';
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-	apiKey: 'AIzaSyA9byiElkpus3XEPdHbeMvBwO2gf8h_Oik',
-	authDomain: 'collegebookingfacilities.firebaseapp.com',
-	projectId: 'collegebookingfacilities',
-	storageBucket: 'collegebookingfacilities.appspot.com',
-	messagingSenderId: '387380324639',
-	appId: '1:387380324639:web:2926fef3469c9e489a682a',
-	measurementId: 'G-63LQF0VWDZ',
+	apiKey: import.meta.env.VITE_APIKEY,
+	authDomain: import.meta.env.VITE_AUTHDOMAIN,
+	projectId: import.meta.env.VITE_PROJECTID,
+	storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+	messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+	appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase
