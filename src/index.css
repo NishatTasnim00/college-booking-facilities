@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.default{
+    @apply font-medium text-lg text-neutral-900
+}
+.active{
+    @apply font-medium text-lg text-orange-500 underline
+}
