@@ -28,13 +28,13 @@ const ReviewCard = ({college}) => {
 					<div className="w-11/12 mx-auto">
 						<Slider {...settings}>
 							{reviews?.map((review) => (
-								<div className="h-96 pt-24">
-									<div className="w-4/12 mx-auto text-center text-white space-y-8">
+								<div className="w-full lg:h-96 pt-24">
+									<div className="w-full lg:w-4/12 mx-auto text-center text-white lg:space-y-8">
 										<h1 className=" font-semibold text-4xl">
-											{college_name}
+											{college_name}College
 										</h1>
 										<div className='flex justify-center  bg-black'>
-											<MdOutlineRateReview size={40} color="blue" />
+											<MdOutlineRateReview size={40} color="white" />
 										</div>
 										<p className="mx-auto">
 											"{review?.review}"

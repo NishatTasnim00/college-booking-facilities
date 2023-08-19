@@ -20,7 +20,7 @@ const MyCollege = () => {
  
     return (
 			<div>
-				<h1 className="font-bold text-5xl pb-10 pt-5 text-center text-blue-500 uppercase">
+				<h1 className="title">
 					My College
 				</h1>
 				<div>

@@ -6,10 +6,10 @@ import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 
 const AdmissionForm = () => {
-   const { college_name } = useParams();
-		console.log(college_name);
+	const { college_name } = useParams();
+	console.log(college_name);
 	const { user } = useContext(AuthContext);
-    // console.log(user);
+	// console.log(user);
 	const navigate = useNavigate();
 	const {
 		register,
@@ -18,12 +18,13 @@ const AdmissionForm = () => {
 	} = useForm();
 
 	const onSubmit = (newData) => {
-
 		// Image Upload
 		const image = newData.image[0];
 		const formData = new FormData();
 		formData.append('image', image);
-		const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY}`;
+		const url = `https://api.imgbb.com/1/upload?key=${
+			import.meta.env.VITE_IMGBB_KEY
+		}`;
 
 		axios
 			.post(url, formData)
@@ -31,22 +32,15 @@ const AdmissionForm = () => {
 				// console.log(imageData);
 				if (imageData.data.success) {
 					const imageUrl = imageData.data.data.url;
-					const {
-						name,
-						subject,
-						email,
-						phone,
-						address,
-                        dob
-					} = newData;
+					const { name, subject, email, phone, address, dob } = newData;
 					const candidate = {
 						name,
 						subject,
-                        college_name,
+						college_name,
 						email,
 						phone,
 						address,
-                        dob,
+						dob,
 						image: imageUrl,
 					};
 					// console.log(imageUrl);
@@ -77,7 +71,10 @@ const AdmissionForm = () => {
 
 	return (
 		<div className="w-full">
-			<form onSubmit={handleSubmit(onSubmit)} className="w-3/5 mx-auto">
+			<h1 className="font-bold text-3xl pb-10 pt-5 text-center text-blue-500 uppercase">
+				Take Admission at {college_name}{' '}
+			</h1>
+			<form onSubmit={handleSubmit(onSubmit)} className="lg:w-3/5 mx-auto">
 				{errors.exampleRequired && <span>This field is required</span>}
 				<div className="grid lg:grid-cols-2">
 					<div className="w-full px-5">
@@ -105,7 +102,7 @@ const AdmissionForm = () => {
 								placeholder="Image"
 								required
 							/>
-							<p className="py-[11px] rounded-none rounded-l-lg  z-10 top-0 absolute bg-slate-100 p-[7px]  left-0">
+							<p className="py-[11px] rounded-none rounded-l-lg  top-0 absolute bg-slate-100 p-[7px]  left-0">
 								Upload Image
 							</p>
 						</div>
@@ -188,7 +185,10 @@ const AdmissionForm = () => {
 				</div>
 
 				<div className="w-full p-5 ">
-					<button type="submit" className="btn btn-block btn-primary">
+					<button
+						type="submit"
+						className="btn btn-block bg-blue-00 text-gray-700 font-bold"
+					>
 						Submit
 					</button>
 				</div>

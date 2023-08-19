@@ -22,11 +22,9 @@ const Colleges = () => {
 		return <div>Loading...</div>;
 	}
 	return (
-		<div className="">
-			<h1 className="font-bold text-5xl pb-20 pt-5 text-center text-blue-500 uppercase">
-				Colleges at a glance
-			</h1>
-			<div className="grid grid-cols-3 gap-5 mx-auto">
+		<div>
+			<h1 className="title">Colleges at a glance</h1>
+			<div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mx-auto">
 				{collegesData.map((college, i) => (
 					<CollegeCard college={college} key={college.id}></CollegeCard>
 				))}

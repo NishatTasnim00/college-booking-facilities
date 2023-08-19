@@ -26,9 +26,9 @@ const MyCollegesCard = ({ college }) => {
 	return (
 		<div>
 			<div className="card w-10/12 bg-base-100 shadow-xl mx-auto">
-				<figure className="h-72 w-8/12 mx-auto mt-10">
+				<figure className="h-72 lg:w-8/12 mx-auto mt-10">
 					<img
-						className="h-72 w-6/12 rounded-xl absolute object-cover"
+						className="h-72 lg:w-6/12 rounded-xl absolute object-cover"
 						src={college_image}
 						alt={college_name}
 					/>
@@ -69,7 +69,7 @@ const MyCollegesCard = ({ college }) => {
 				<div>
 					{/* Your main content */}
 					<button
-						className="btn  bg-blue-400 w-full rounded-none rounded-b-lg"
+						className="btn btn-block bg-blue-400 text-gray-700 font-bold rounded-t-none"
 						onClick={handleShowModal}
 					>
 						Open Rating Modal

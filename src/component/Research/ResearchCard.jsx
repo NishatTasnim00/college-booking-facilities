@@ -46,20 +46,20 @@ const RecommendedResearchPapers = ({ research }) => {
 
 	return (
 		<div>
-			<ul className="list-disc pl-8">
-				<h3 className="text-lg font-bold">
+			<ul className="list-disc text-blue-500 pl-8 pb-3">
+				<li className="text-lg font-semibold">
 					<a
 						href={link}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-blue-600 hover:underline cursor-pointer"
+						className="text-blue-500 hover:underline cursor-pointer"
 					>
 						{researchTopic}
 					</a>
 					<span className="font-thin text-slate-500 text-sm gap-5">
 						  ~{researcher}({formatDate(publishDate)})
 					</span>
-				</h3>
+				</li>
 
 				{/* <p className="text-sm">Author: {researcher}</p> */}
 			</ul>

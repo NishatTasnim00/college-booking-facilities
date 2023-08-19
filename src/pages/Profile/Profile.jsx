@@ -53,8 +53,8 @@ const Profile = () => {
 							className="h-40 w-40 rounded-full"
 						/>
 					</figure>
-					<div className=" items-center text-center space-y-2 font font-semibold text-lg">
-						<h2 className="card-subtitle mx-auto">{profile?.name}</h2>
+					<div className="items-center text-center space-y-2 font font-semibold text-lg text-gray-700">
+						<h2 className="mx-auto">{profile?.name}</h2>
 						<p>
 							{profile?.subject}, {profile?.college_name}
 						</p>
@@ -67,7 +67,7 @@ const Profile = () => {
 						<div className="card-actions"></div>
 						<div className="flex justify-center">
 							<button
-								className="btn btn-neutral  mt-7 px-10"
+								className="btn mt-7 px-10 btn-block bg-blue-400 text-gray-700 font-bold"
 								onClick={handleEditClick}
 							>
 								Edit

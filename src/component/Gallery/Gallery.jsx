@@ -15,16 +15,21 @@ const Gallery = () => {
 	];
 
 	return (
-		<div className="grid grid-cols-3 gap-4">
-			{imageUrls.map((url, index) => (
-				<div key={index} className="w-full h-48 rounded-lg overflow-hidden">
-					<img
-						src={url}
-						alt={`Image ${index + 1}`}
-						className="w-full h-full object-cover"
-					/>
-				</div>
-			))}
+		<div>
+			<h1 className="font-bold text-5xl pb-20 pt-5 text-center text-blue-500 uppercase">
+				Gallery
+			</h1>
+			<div className="grid lg:grid-cols-3 gap-4">
+				{imageUrls.map((url, index) => (
+					<div key={index} className="w-full h-48 rounded-lg overflow-hidden">
+						<img
+							src={url}
+							alt={`Image ${index + 1}`}
+							className="w-full h-full object-cover"
+						/>
+					</div>
+				))}
+			</div>
 		</div>
 	);
 };

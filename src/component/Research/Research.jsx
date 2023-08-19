@@ -22,8 +22,11 @@ const Research = () => {
 		});
         // console.log(researchesData);
     return (
-			<div className='w-11/12'>
-				<h2 className="text-2xl font-bold mb-4">Research Papers</h2>
+			<div className="w-11/12">
+				<h1 className="font-bold text-5xl pb-20 pt-5 text-center text-blue-500 uppercase">
+					Research Papers
+				</h1>
+				<h2 className="text-2xl font-bold mb-4"></h2>
 				{researchesData.map((research) => (
 					<ResearchCard research={research}></ResearchCard>
 				))}

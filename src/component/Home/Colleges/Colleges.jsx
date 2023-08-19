@@ -18,15 +18,18 @@ const Colleges = () => {
 		},
 	});
 	// console.log(collegesData);
-     if (isLoading) {
-				return <div>Loading...</div>;
-			}
+     
 	return (
-		<div className='grid grid-cols-3 gap-5 mx-auto'>
-			{collegesData.slice(0, 3).map((college, i) => (
-				<CollegeCard college={college} key={college.id}></CollegeCard>
-			))}
-		</div>
+		<>
+			<h1 className="font-bold text-5xl pt-5 text-center text-blue-500 uppercase">
+				colleges
+			</h1>
+			<div className="grid lg:grid-cols-3 gap-5 mx-auto">
+				{collegesData.slice(0, 3).map((college, i) => (
+					<CollegeCard college={college} key={college.id}></CollegeCard>
+				))}
+			</div>
+		</>
 	);
 };
 

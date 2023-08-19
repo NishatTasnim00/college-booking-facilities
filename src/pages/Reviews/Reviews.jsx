@@ -43,42 +43,38 @@ const Reviews = () => {
 						arrows: true,
 					};
     return (
-			// <div>
+			<div>
+				<h1 className="font-bold text-5xl pb-20 pt-5 text-center text-blue-500 uppercase">
+					testimonial
+				</h1>
 
-			// 			{reviews.map((college) => (
-			// 				<div key={college._id}>
-			// 					<ReviewCard college={college} />
-			// 				</div>
-			// 			))}
-
-			// </div>
-
-			<div
-				className=" bg-cover"
-				style={{
-					backgroundImage: `url(${bg})`,
-				}}
-			>
-				<div className="bg-black opacity-80 ">
-					<div className="w-11/12 mx-auto">
-						<Slider {...settings}>
-							{reviews?.map((review) => (
-								<div className="h-96 pt-24">
-									<div className="w-4/12 mx-auto text-center text-white space-y-8">
-										{/* <h1 className=" font-semibold text-4xl">{college_name}</h1> */}
-										<div className="flex justify-center  bg-black">
-											<MdOutlineRateReview size={28} color="blue" />
+				<div
+					className=" bg-cover"
+					style={{
+						backgroundImage: `url(${bg})`,
+					}}
+				>
+					<div className="bg-black opacity-80 ">
+						<div className="w-10/12 lg:w-11/12 mx-auto">
+							<Slider {...settings}>
+								{reviews?.map((review) => (
+									<div className="lg:h-96 px-2 py-5 lg:py-0 lg:pt-24">
+										<div className="lg:w-4/12 mx-auto text-center text-white space-y-8">
+											{/* <h1 className=" font-semibold text-4xl">{college_name}</h1> */}
+											<div className="flex justify-center  bg-black">
+												<MdOutlineRateReview size={28} color="white" />
+											</div>
+											<p className="mx-auto">
+												"{review?.review}"
+												<span className="font-thin text-slate-500 text-sm">
+													-- {review.name}
+												</span>
+											</p>
 										</div>
-										<p className="mx-auto">
-											"{review?.review}"
-											<span className="font-thin text-slate-500 text-sm">
-												-- {review.name}
-											</span>
-										</p>
 									</div>
-								</div>
-							))}
-						</Slider>
+								))}
+							</Slider>
+						</div>
 					</div>
 				</div>
 			</div>

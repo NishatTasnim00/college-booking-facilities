@@ -20,13 +20,13 @@ const Admission = () => {
 	});
 	return (
 		<div>
-			<h1 className='font-bold text-5xl pb-20 pt-5 text-center text-blue-500 uppercase'>Enroll in your dream college</h1>
-			<div className="w-10/12 mx-auto grid grid-cols-3 gap-8">
+			<h1 className='title'>Enroll in your dream college</h1>
+			<div className="w-10/12 mx-auto lg:grid grid-cols-3 gap-8">
 				{collegesData.map((college) => (
 					<Link to={`/${college.college_name}/admissionForm`}>
-						<div>
+						<div className='pb-5 lg:pb-0'>
 							<div
-								className="hero h-64"
+								className="hero h-48 lg:h-64"
 								style={{
 									backgroundImage: `url(${college.college_image})`,
 								}}

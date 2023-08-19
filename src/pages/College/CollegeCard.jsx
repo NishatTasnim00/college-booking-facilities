@@ -13,7 +13,7 @@ const CollegeCard = ({ college }) => {
 	} = college;
 	return (
 		<div>
-			<div className="card w-96 bg-base-100 shadow-xl">
+			<div className="card lg:w-96 bg-base-100 shadow-xl m-5 lg:m-0">
 				<figure className="h-64 bg-black">
 					<img
 						className="h-64 rounded-t-xl absolute "
@@ -33,7 +33,7 @@ const CollegeCard = ({ college }) => {
 					<ul>
 						{college.events.map((event, index) => (
 							<li key={index}>
-								<strong className="text-gray-700">{event.event_name}</strong> -{' '}
+								<strong className="text-gray-600">{event.event_name}</strong> -{' '}
 								<span className="event-date">{event.date}</span>
 							</li>
 						))}

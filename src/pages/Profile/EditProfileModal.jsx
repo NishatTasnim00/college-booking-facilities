@@ -26,11 +26,11 @@ const EditProfileModal = ({ show, profile, onClose, onSave }) => {
 		const editedProfile = {
 			name: data.name || profile.name,
 			college_name: data.college_name || profile?.college_name,
-			address : data.address || profile?.address,
+			address: data.address || profile?.address,
 			email: data.email || profile?.email,
 		};
 		onSave(editedProfile);
-				onClose();
+		onClose();
 
 		console.log(editedProfile);
 	};
@@ -41,7 +41,7 @@ const EditProfileModal = ({ show, profile, onClose, onSave }) => {
 			}`}
 		>
 			<div className="bg-white p-6 rounded-md shadow-md ">
-				<h2 className="font-bolt text-3xl py-4 text-blue-400 text-center">
+				<h2 className="font-bolt text-3xl py-4 text-bg-blue-200 text-center">
 					Edit Profile
 				</h2>
 				{/*  */}
